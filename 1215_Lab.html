@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input Comparison</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    var firstInputValue; // 新增一個變數存儲第一次輸入的值
+
+    function getUserInput(promptText) {
+      return prompt(promptText);
+    }
+
+    function compareAndDisplay() {
+      var firstInput = parseFloat(getUserInput("Enter the first number:"));
+      var secondInput = parseFloat(getUserInput("Enter the second number:"));
+
+      if (isNaN(firstInput) || isNaN(secondInput)) {
+        alert("Please enter valid numbers.");
+        return;
+      }
+
+      if (firstInput > secondInput) {
+        document.body.style.backgroundColor = "lightblue";
+        alert("First Input > Second Input");
+      } else if (secondInput > firstInput) {
+        document.body.style.backgroundColor = "orange";
+        alert("Second Input > First Input");
+      } else {
+        document.body.style.backgroundColor = "lightyellow";
+        alert("First Input = Second Input");
+      }
+
+      firstInputValue = firstInput;
+      secondInputValue = secondInput;
+    }
+
+    function showFirstInput() {
+      if (firstInputValue !== undefined) {
+        alert("First Input: " + firstInputValue);
+      } else {
+        alert("Please compare inputs first.");
+      }
+    }
+
+    function showSecondInput() {
+      if (secondInputValue !== undefined) {
+        alert("First Input: " + secondInputValue);
+      } else {
+        alert("Please compare inputs first.");
+      }
+    }
+  </script>
+
+  <h1>Input Comparison</h1>
+  <button onclick="compareAndDisplay()">Compare Inputs</button>
+  <button onclick="showFirstInput()">Show First Input</button>
+  <button onclick="showSecondInput()">Show Second Input</button>
+</body>
+
+</html>
